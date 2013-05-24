@@ -50,5 +50,5 @@ end
 
 require 'action_controller/integration'
 require 'application.rb'
-require 'passive_record'
+#require 'passive_record'
 require "will_paginate"
