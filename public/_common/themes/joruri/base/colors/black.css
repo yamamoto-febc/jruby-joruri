@@ -1,0 +1,602 @@
+/* basic style
+----------------------------------------------- */
+body, body div {
+  background-color: #000000;
+  color: #ffffff;
+}
+a {
+  color: #ffffff;
+}
+a:visited {
+  color: #ffffff;
+}
+a:hover {
+  color: #ffffff;
+}
+.docTab .content li {
+  color: #ffffff;
+}
+h1 {
+  color: #ffffff;
+}
+#contentBody .docTab .content li {
+  color: #ffffff;
+}
+span {
+  color: #ffffff !important;
+}
+
+/* header
+--------------------------------------------------- */
+#commonHeader,
+#commonHeader .pieceContainer,
+#commonHeader .pieceBody {
+  background-color: #ececec;
+  color: #000;
+}
+#navigationNotice {
+  color: #000;
+}
+
+/* banner style
+----------------------------------------------- */
+#bannerContainer, #CommonBanner, #commonBanner .lowerMenu {
+  background-color: #000000;
+}
+#commonBanner .logo {
+  background-color: transparent;
+}
+
+/* footer style
+----------------------------------------------- */
+#footerNavi .pieceBody,
+#footerNavi a,
+#footerNavi a:visited,
+#footerNavi a:hover {
+  color: #ffffff;
+}
+
+/* menu style
+----------------------------------------------- */
+#mayor .pieceBody,
+#ereaMap {
+  border: none;
+}
+#ereaMap .pieceBody {
+  background-color: #000000;
+  color: #ffffff;
+}
+#menu ul {
+  background-color: #000000;
+}
+#menu #population .pieceHeader {
+  background-color: #000000;
+  background-image: none;
+  border: 1px solid #ffffff;
+  border-bottom: none;
+  line-height: 1.4;
+  padding: 4px 7px;
+}
+#population th.noBorder,
+#population th {
+  background-color: #000000;
+  border: 1px solid #ffffff;
+}
+#population td.noBorder,
+#population td {
+  background-color: #000000;
+  border: 1px solid #ffffff;
+}
+#menu .pieceHeader, #links .pieceHeader {
+  border: 1px solid #ffffff;
+  background-image: none;
+}
+
+/* links style
+----------------------------------------------- */
+#links ul {
+  background-color: #000000;
+}
+#calendar .pieceHeader {
+  border: none;
+  background-color: #000000;
+  color: #ffffff;
+}
+#calendar .pieceBody {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+#calendar .pieceBody .links {
+  width: 166px;
+  border-bottom: 1px solid #b4b4b4;
+  border-left: 1px solid #b4b4b4;
+  background-image: none;
+}
+#calendar .calendar {
+  width: 160px;
+  margin-left: 1px;
+}
+.sat, .sun, .holiday {
+  color: #ffffff;
+}
+
+/* page-title piece
+----------------------------------------------- */
+#pageTitle .pieceBody {
+  border: 1px solid #ffffff;
+  background-image: none;
+}
+
+/* category
+----------------------------------------------- */
+.category {
+  background-color: #000000;
+}
+.contentArticleCategory .latest {
+  background-image: none;
+}
+.contentArticleCategory .latest h2 {
+  border: 1px solid #ffffff;
+  background-image: none;
+}
+.contentArticleCategory h3 {
+  border: 1px solid #ffffff;
+  background-color: #000000;
+  color: #ffffff;
+}
+#ArticleCategory .pieceHeader {
+  background-image: none;
+}
+#ArticleCategory .pieceHeader h2 {
+  border: 1px solid #ffffff;
+  background-image: none;
+  color: #ffffff;
+}
+
+/* unit
+----------------------------------------------- */
+table.department {
+  background-color: #000000;
+  color: #ffffff;
+  font-weight: bold;
+}
+table.department td {
+  font-weight: bold;
+}
+table.unit tr.cycle {
+  background-color: #000000;
+  color: #ffffff;
+}
+.contentArticleUnit .latest {
+  background-image: none;
+}
+.contentArticleUnit .latest h2 {
+  border: 1px solid #ffffff;
+  background-image: none;
+}
+.contentArticleUnit h3 {
+  border: 1px solid #ffffff;
+  background-color: #000000;
+  color: #ffffff;
+}
+
+/* attribute
+----------------------------------------------- */
+.attribute {
+  background-color: #000000;
+  color: #ffffff;
+}
+.contentArticleAttribute .latest {
+  background-image: none;
+}
+.contentArticleAttribute .latest h2 {
+  border: 1px solid #ffffff;
+  background-image: none;
+}
+.contentArticleAttribute h3 {
+  border: 1px solid #ffffff;
+  background-color: #000000;
+  color: #ffffff;
+}
+
+/* area
+----------------------------------------------- */
+table.ward {
+  background-color: #000000;
+  color: #ffffff;
+}
+table.ward td {
+  font-weight: bold;
+}
+table.city tr.cycle {
+  background-color: #000000;
+  color: #ffffff;
+}
+.contentArticleArea .latest {
+  background-image: none;
+}
+.contentArticleArea .latest h2 {
+  border: 1px solid #ffffff;
+  background-image: none;
+}
+.contentArticleArea h3 {
+  border: 1px solid #ffffff;
+  background-color: #000000;
+  color: #ffffff;
+}
+
+/* shinchaku portal
+----------------------------------------------- */
+#recentDocsTitle .pieceHeader {
+  background-image: none;
+}
+#recentDocsTitle h2 {
+  border: 1px solid #ffffff;
+  background-image: none;
+}
+
+/* calendar
+----------------------------------------------- */
+.contentArticleEventDocs h2 {
+  border: 1px solid #ffffff;
+  background-color: #000000;
+  color: #ffffff;
+}
+.attributeNyusatsu span,
+.attributeSaiyojoho span,
+.attributeKakusyushikakushiken span,
+.attributeBosyu span,
+.attributeEventjoho span,
+.attributeKyoka span {
+  border: 1px solid #ffffff;
+  background-color: #000000;
+  color: #ffffff;
+}
+#calendarDailyLinks .pieceHeader {
+  border: none;
+}
+#calendarDailyLinks .calendar {
+  width: 160px;
+  margin-left: 1px;
+}
+#calendarDailyLinks .links {
+  width: 166px;
+  margin-left: 1px;
+  border-bottom: 1px solid #9a9a9a;
+  background-image: none;
+}
+.calendarEvents .pagination {
+  background-color: #000000;
+}
+#menu li .year,
+#menu li .month {
+  background-color: #000000;
+}
+
+/* doc
+----------------------------------------------- */
+.contentArticleDoc .header {
+  border-top: 1px solid #ffffff;
+  border-bottom: 1px solid #ffffff;
+  background-color: #000000;
+}
+.contentArticleDoc .back a {
+  border: 1px solid #ffffff;
+  background-color: #000000;
+}
+.contentArticleDoc .maps h2,
+.contentArticleDoc .rels h2,
+.contentArticleDoc .tags h2 {
+  border: 1px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  background-color: #000000;
+}
+.inquiry h2 {
+  color: #ffffff;
+}
+
+/* docs
+----------------------------------------------- */
+.contentPortalCategory h2.date,
+.contentPortalEntries h2.date,
+.contentArticleRecentDocs .docs h2 {
+  border: 1px solid #ffffff;
+  background-color: #000000;
+  color: #ffffff;
+}
+
+/* tag
+----------------------------------------------- */
+.contentArticleTags .search,
+.contentFaqTags .search {
+  border: none;
+  background-color: #000000;
+  color: #ffffff;
+}
+.contentArticleTags .hit,
+.contentFaqTags .hit {
+  border: 1px solid #ffffff;
+  background-image: none;
+  color: #ffffff;
+}
+
+/* enquete
+----------------------------------------------- */
+.enqueteForms .form h2, .enqueteForm .form h2,
+.enqueteForm .submitters,
+.enqueteForm .back a {
+  border: 1px solid #ffffff;
+  background-color: #000000;
+}
+.enqueteForm .column .name {
+  border: 1px solid #ffffff;
+  border-left: 4px solid #ffffff;
+  background-color: #000000;
+}
+.enqueteForm .errorExplanation {
+  color: #ffffff !important;
+}
+
+/* sitemap
+----------------------------------------------- */
+.level1 li, ul.level3, ul.level2, .level2 li {
+  background-color: #000000;
+  color: #ffffff;
+}
+.level2 a, .level3 a {
+  color: #ffffff;
+}
+ul.sitemap li.level1,
+ul.sitemap ul.level2 {
+  background-color: #000000;
+}
+
+/* mayor
+----------------------------------------------- */
+#mayorSide {
+  background-color: #000000;
+}
+.contentTitle {
+  background-color: #000000;
+}
+.contentTitle .contentTitleBody,
+.contentTitle .contentTitleBody h2 {
+  margin: 0px;
+  border: none;
+  background-image: none;
+}
+
+/* recent-docs
+----------------------------------------------- */
+#recentDocs .pieceHeader {
+  border: 1px solid #ffffff;
+  background: none;
+}
+  
+/* topic
+----------------------------------------------- */
+#topic .pieceHeader {
+  background-image: none;
+}
+#topic .pieceHeader h2 {
+  border: 1px solid #ffffff;
+  background-image: none;
+  color: #ffffff;
+}
+#topic h3 {
+  color: #ffffff;
+}
+
+/* lifeevent
+----------------------------------------------- */
+#lifeEvent .pieceHeader {
+  background-image: none;
+}
+#lifeEvent .pieceHeader h2 {
+  border: 1px solid #ffffff;
+  background-image: none;
+  color: #ffffff;
+}
+#lifeEventSide {
+  background-color: #000000;
+}
+#contentTitle .pieceContainer {
+  background-image: none;
+}
+#contentTitle .pieceBody {
+  border: 1px solid #ffffff;
+  background-image: none;
+}
+#lifeEvent li.pregnant p,
+#lifeEvent li.child p,
+#lifeEvent li.work p,
+#lifeEvent li.adult p,
+#lifeEvent li.moving p,
+#lifeEvent li.marriage p,
+#lifeEvent li.welfare p,
+#lifeEvent li.death p {
+  border: 1px solid #ffffff;
+  background-color: #000000;
+}
+.lifeevents .lifeevent {
+  width: 48%;
+  border: 1px solid #ffffff;
+  background-color: #000000;
+}
+#page-lifeevent-index .contentPage .body h2 {
+  border: none;
+  background-color: transparent;
+}
+#page-lifeevent-ninshin #pageTitle h1,
+#page-lifeevent-kosodate #pageTitle h1,
+#page-lifeevent-shushoku #pageTitle h1,
+#page-lifeevent-seijin #pageTitle h1,
+#page-lifeevent-hikkoshi #pageTitle h1,
+#page-lifeevent-kekkon #pageTitle h1,
+#page-lifeevent-fukushi #pageTitle h1,
+#page-lifeevent-shibo #pageTitle h1 {
+  padding: 0 0 0 10px;
+  background-image: none;
+}
+#page-lifeevent-ninshin #pageTitle .pieceBody,
+#page-lifeevent-kosodate #pageTitle .pieceBody,
+#page-lifeevent-shushoku #pageTitle .pieceBody,
+#page-lifeevent-seijin #pageTitle .pieceBody,
+#page-lifeevent-hikkoshi #pageTitle .pieceBody,
+#page-lifeevent-kekkon #pageTitle .pieceBody,
+#page-lifeevent-fukushi #pageTitle .pieceBody,
+#page-lifeevent-shibo #pageTitle .pieceBody {
+  padding: 0 0 0 10px;
+  border: 1px solid #ffffff;
+  background-image: none;
+}
+#page-lifeevent-ninshin h2.lifeEventTitle,
+#page-lifeevent-kosodate h2.lifeEventTitle,
+#page-lifeevent-shushoku h2.lifeEventTitle,
+#page-lifeevent-seijin h2.lifeEventTitle,
+#page-lifeevent-hikkoshi h2.lifeEventTitle,
+#page-lifeevent-kekkon h2.lifeEventTitle,
+#page-lifeevent-fukushi h2.lifeEventTitle,
+#page-lifeevent-shibo h2.lifeEventTitle {
+  border-bottom: #ffffff solid 1px;
+  border-left: #ffffff solid 1px;
+}
+
+/* headerÅEfotter pege
+----------------------------------------------- */
+.contentPage .body h2 {
+  border: 1px solid #ffffff;
+  background-color: #000000;
+}
+
+/* emergency
+----------------------------------------------- */
+#emergency .pieceHeader,
+#emergencyApplication .pieceBody,
+#emergencyMailmagazine .pieceBody,
+#emergencyInquiry .pieceBody {
+  background-color: #000000;
+  color: #ffffff;
+}
+#emergency {
+  border: 2px solid #ffffff;
+}
+#emergency .pieceBody ul {
+  border: none;
+}
+#emergencyInfo .pieceContainer {
+  border: 2px solid #ffffff;
+  background-color: #000000;
+}
+
+/* mailmagazine
+----------------------------------------------- */
+.contentNewsletterForms h2 {
+  border: 1px solid #ffffff;
+  background-color: #000000;
+}
+.contentNewsletterForms .column .name {
+  border: 1px solid #ffffff;
+  border-left: 4px solid #ffffff;
+  background-color: #000000;
+}
+
+/* bbs
+----------------------------------------------- */
+.contentBbsThreads .entryForm h2.formTitle {
+  background-color: #000000;
+}
+.contentBbsThreads .threadItem h2 {
+  background-color: #000000;
+  color: #ffffff;
+}
+.contentBbsThreads .poster span,
+.contentBbsThreads .poster .no {
+  color: #ffffff;
+}
+.contentBbsThreads .deleteForm h2.formTitle {
+  background-color: #000000;
+}
+#bbsRecent .pieceHeader,
+#bbsThread .pieceHeader,
+#bbsRes .pieceHeader {
+  padding: 0 5px 0 10px;
+  border: 1px solid #ffffff;
+  background-image: none;
+}
+#bbsRecent ul,
+#bbsThread ul,
+#bbsRes ul {
+  border-width: medium 1px 1px;
+  border-color: #ffffff;
+  border-style: none solid solid;
+  border-right: 1px solid #ffffff;
+}
+.notice {
+  border: 1px solid #ffffff;
+  background-color: #000000;
+  color: #ffffff;
+}
+.errorExplanation {
+  border-width: medium 1px 1px;
+  border-color: #ffffff;
+  border-style: none solid solid;
+  border-right: 1px solid #ffffff;
+  color: #ffffff;
+}
+.errorExplanation h2 {
+  border-top: 1px solid #ffffff;
+  border-right: none;
+  border-bottom: 1px solid #ffffff;
+  border-left: none;
+  background-color: #000000;
+}
+.contentBbsThreads .back a {
+  background-color: #000000;
+}
+
+/* faq
+----------------------------------------------- */
+#faqRecentDocs .pieceHeader {
+  border: 1px solid #ffffff;
+  background-image: none;
+}
+.contentFaqDoc .body.answer,
+.contentFaqDoc .question,
+.contentFaqDoc .header {
+  background-color: #000000;
+}
+.contentFaqDoc .back a {
+  border: 1px solid #ffffff;
+  background-color: #000000;
+  color: #ffffff;
+}
+.contentFaqRecentDocs .date,
+.contentFaqDocs .date {
+  border: 1px solid #ffffff;
+  background-color: #000000;
+}
+.contentFaqCategory .category h2 {
+  border: 1px solid #ffffff;
+  background-color: #000000;
+}
+#recentFaqTitle .pieceHeader,
+#faqRecentDocs .pieceHeader {
+  border: 1px solid #ffffff;
+  background-image: none;
+}
+#recentFaqTitle h2,
+#faqRecentDocs .pieceHeader h2,
+.contentFaqCategory .latest {
+  background-image: none;
+}
+.contentFaqCategory .latest h2 {
+  border: 1px solid #ffffff;
+  background-image: none;
+}
+.contentFaqCategory .category h3 {
+  border: 1px solid #ffffff;
+  background-color: #000000;
+  color: #ffffff;
+}

@@ -1,0 +1,167 @@
+@charset "UTF-8";
+@import "../base/init.css";
+@import "../base/style.css";
+@import "../piece/style.css";
+
+/* =========================================================
+   category
+========================================================= */
+
+/* Bunya Ichiran
+----------------------------------------------- */
+.categoryKurashi,
+.categoryFukushi,
+.categoryKyoikubunka,
+.categoryKanko,
+.categorySangyoshigoto,
+.categoryGyoseimachizukuri,
+.categoryBosaigai {
+  float: left;
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 10px 0;
+  background-color: #e3f5ff;
+  line-height: 1.5;
+}
+.categoryBosaigai {
+  background-color: #fbe7eb;
+}
+.contentArticleCategory .category h2 {
+  float: left;
+  width: 150px;
+  padding-left: 60px;
+  line-height: 50px;
+}
+.contentArticleCategory .categoryKurashi h2 {
+  background-image: url(./images/ic-kurashi.gif);
+  background-position: 10px center;
+  background-repeat: no-repeat;
+}
+.contentArticleCategory .categoryFukushi h2 {
+  background-image: url(./images/ic-fukushi.gif);
+  background-position: 10px center;
+  background-repeat: no-repeat;
+}
+.contentArticleCategory .categoryKyoikubunka h2 {
+  background-image: url(./images/ic-kyoiku.gif);
+  background-position: 10px center;
+  background-repeat: no-repeat;
+}
+.contentArticleCategory .categoryKanko h2 {
+  background-image: url(./images/ic-kanko.gif);
+  background-position: 10px center;
+  background-repeat: no-repeat;
+}
+.contentArticleCategory .categorySangyoshigoto h2 {
+  background-image: url(./images/ic-sangyou.gif);
+  background-position: 10px center;
+  background-repeat: no-repeat;
+}
+.contentArticleCategory .categoryGyoseimachizukuri h2 {
+  background-image: url(./images/ic-gyosei.gif);
+  background-position: 10px center;
+  background-repeat: no-repeat;
+}
+.contentArticleCategory .categoryBosaigai h2 {
+  background-image: url(./images/ic-bosai.gif);
+  background-position: 10px center;
+  background-repeat: no-repeat;
+}
+.contentArticleCategory .category .children div {
+  display: inline;
+  padding-right: 10px;
+}
+.contentArticleCategory .categoryFukushi,
+.contentArticleCategory .categoryKyoikubunka,
+.contentArticleCategory .categoryKanko,
+.contentArticleCategory .categorySangyoshigoto,
+.contentArticleCategory .categoryGyoseimachizukuri,
+.contentArticleCategory .categoryBosaigai {
+  clear: both;
+}
+
+/* shinchaku-ichiran
+----------------------------------------------- */
+.contentArticleCategory .latest {
+  margin-bottom: 30px;
+  padding: 0px;
+  background-image: url(./images/tl-shinchaku-repeat.gif);
+  background-position: left top;
+  background-repeat: repeat-x;
+}
+.contentArticleCategory .latest h2 {
+  height: 30px;
+  line-height: 30px;
+  margin-bottom: 10px;
+  padding-left: 10px;
+  background-image: url(./images/tl-shinchaku.gif);
+  background-repeat: no-repeat;
+  background-position: left top;
+  color: #ffffff;
+  font-size: 120%;
+  font-weight: bold;
+}
+.contentArticleCategory ul {
+  padding: 0 5px;
+}
+.contentArticleCategory li {
+  padding: 0 0 5px 10px;
+  background-image: url(./images/ic-list-shinchaku.gif);
+  background-repeat: no-repeat;
+  background-position: left 5px;
+}
+h3 {
+  background-color: #e3f0fa;
+  margin-bottom: 10px;
+  padding: 5px 5px 4px 15px;
+  color: #333333;
+  font-weight: bold;
+  font-size: 120%;
+}
+.more {
+  padding: 0 5px 10px 0;
+  text-align: right;
+}
+
+/* RSS Atom
+----------------------------------------------- */
+.feed {
+  float: right;
+  position: relative;
+  top: -32px;
+  right: 10px;
+  height: 13px;
+  background-color: transparent;
+}
+.feed a.feedRss {
+  display: inline-block;
+  width: 40px;
+  height: 13px;
+  overflow: hidden;
+  background-image: url(./images/bt-rss.gif);
+  background-repeat: no-repeat;
+  text-indent: 50px;
+}
+.feed a.feedAtom {
+  display: inline-block;
+  width: 40px;
+  height: 13px;
+  overflow: hidden;
+  background-image:url(./images/bt-atom.gif);
+  background-repeat:no-repeat;
+  text-indent: 50px;
+}
+
+/* pagination
+----------------------------------------------- */
+.pagination {
+  text-align: center;
+}
+.pagination a {
+  padding: 0 6px;
+}
+.pagination span.current {
+  padding: 0 3px;
+  font-weight: bold;
+  font-size: 150%;
+}

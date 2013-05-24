@@ -1,0 +1,17 @@
+  <table class="index">
+  <tr>
+    <th style="width: 30%;">マップ名称</th>
+    <th style="width: 60px; text-align: right;">記事番号</th>
+    <th style="width: ;">タイトル</th>
+  </tr>
+  <% for item in @items %>
+  <% entity = item.entity %>
+  <tr <%= cycle '', 'class="cycle"' %>>
+    <td><%=h safe{entity.title} %></td>
+    <td style="text-align: right;"><%=h safe{item.entity_doc.id} %></td>
+    <td><%=h safe{item.entity_doc.title} %></td>
+  </tr>
+  <% end %>
+  </table>
+
+  <%= paginate @items %>

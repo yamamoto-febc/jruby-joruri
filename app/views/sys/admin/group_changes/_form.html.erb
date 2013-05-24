@@ -1,0 +1,119 @@
+<%
+
+def error?(col)
+  @item.errors.invalid?(col) ? 'class="fieldWithErrors"' : ''
+end
+
+groups_for_selector = Sys::Group.find(:all, :conditions => {:level_no => 1}, :order => :sort_no)
+groups              = Sys::Group.find(:all, :conditions => {:level_no => 2}, :order => :sort_no)
+groups_objects      = Sys::Group.find(:all, :order => :sort_no)
+
+%><p class="form">操作</p>
+<table class="show">
+  <tr>
+    <th><%= @item.locale(:change_division) %></th>
+    <td><%= f.radio_buttons :change_division, @item.change_divisions, :class => 'status' %></td>
+  </tr>
+</table>
+<br />
+
+<p class="form">基本情報</p>
+<script type="text/javascript">
+//<![CDATA[
+
+function setParent() {
+  var s = document.getElementById('item_selector');
+  var codeMapKey ='group_code_' + s.options[s.selectedIndex].value;
+  var nameMapKey ='group_name_' + s.options[s.selectedIndex].value;
+  document.getElementById('item_parent_code').value = document.getElementById(codeMapKey).value
+  document.getElementById('item_parent_name').value = document.getElementById(nameMapKey).value
+}
+
+function setTarget() {
+  var s = document.getElementById('item_selector');
+  var value = s.options[s.selectedIndex].value;
+  var codeMapKey  ='group_code_' + value;
+  var nameMapKey   ='group_name_' + value;
+  var nameEnMapKey ='group_name_en_' + value;
+  var emailMapKey  ='group_email_' + value;
+  var ldapMapKey  ='group_ldap_' + value;
+  var layoutMapKey ='group_layout_' + value;
+
+  document.getElementById('item_code').value      = document.getElementById(codeMapKey).value;
+  document.getElementById('item_name').value      = document.getElementById(nameMapKey).value;
+  document.getElementById('item_name_en').value   = document.getElementById(nameEnMapKey).value;
+  document.getElementById('item_email').value     = document.getElementById(emailMapKey).value;
+  if (document.getElementById(ldapMapKey).value == '1') {
+    document.getElementById('item_ldap_1').checked = true;
+  } else {
+    document.getElementById('item_ldap_0').checked = true;
+  }
+  document.getElementById('item_layout_id').value = document.getElementById(layoutMapKey).value;
+}
+
+//]]>
+</script>
+<table class="show">
+   <tr>
+    <td>引用情報：<%= f.select_with_tree :selector, groups_for_selector %>
+<% groups_objects.each do |g| %>
+<%= hidden_field_tag "group_code_#{g.id}", h(g.code) %>
+<%= hidden_field_tag "group_name_#{g.id}", h(g.name) %>
+<%= hidden_field_tag "group_name_en_#{g.id}", h(g.name_en) %>
+<%= hidden_field_tag "group_email_#{g.id}", h(g.email) %>
+<%= hidden_field_tag "group_ldap_#{g.id}", h(g.ldap) %>
+<%= hidden_field_tag "group_layout_#{g.id}", h(g.layout_id) %>
+<% end %>
+    </td>
+  </tr>
+</table>
+<br />
+
+
+<table class="show">
+  <tr>
+    <th><%= @item.locale(:parent_code) %></th>
+    <td><%= f.text_field :parent_code, :style => 'id' %>&nbsp;<a href="#" onclick="setParent(); return false;">≪引用情報から設定する</a></td>
+  </tr><tr>
+    <th><%= @item.locale(:parent_name) %></th>
+    <td><%= f.text_field :parent_name, :class => 'name' %></td>
+  </tr>
+</table>
+<br />
+
+<table class="show">
+  <tr>
+    <th><%= @item.locale(:code) %></th>
+    <td><%= f.text_field :code, :style => 'id' %>&nbsp;<a href="#" onclick="setTarget(); return false;">≪引用情報から設定する</a></td>
+  </tr><tr>
+    <th><%= @item.locale(:name) %></th>
+    <td><%= f.text_field :name, :class => 'name' %></td>
+  </tr><tr>
+    <th><%= @item.locale(:name_en) %></th>
+    <td><%= f.text_field :name_en, :class => 'nameEn' %></td>
+  </tr><tr>
+    <th><%= @item.locale(:email) %></th>
+    <td><%= f.text_field :email, :class => 'name' %></td>
+  </tr>
+  <tr>
+    <th><%= @item.locale(:ldap) %></th>
+    <td><%= f.radio_buttons :ldap, @item.ldap_states, :class => 'status' %></td>
+  </tr>
+  <%= layout_form f, :container => :tr %>
+</table>
+<br />
+
+<p class="form">引継元情報</p>
+<table class="show">
+  <tr>
+    <th><%= @item.locale(:old_id) %></th>
+    <td><span <%= error?(:old_id) %>><%= f.select_with_tree :old_id, groups, :include_blank => true %></span></td>
+  </tr>
+<% if false %>
+  <tr>
+    <th><%= @item.locale(:old_name) %></th>
+    <td><%= f.text_field :old_name, :class => 'name' %></td>
+  </tr>
+<% end %>
+</table>
+

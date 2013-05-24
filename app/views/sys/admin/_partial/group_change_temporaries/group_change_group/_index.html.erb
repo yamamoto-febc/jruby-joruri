@@ -1,0 +1,19 @@
+  <table class="index">
+  <tr>
+    <th style="width: 70px; text-align: center;"><%= Sys::GroupChange.new.locale(:change_division) %></th>
+    <th style="width: ;"><%= Sys::GroupChange.new.locale(:name) %></th>
+    <th style="width: ;"><%= Sys::GroupChange.new.locale(:email) %></th>
+    <th style="width: ;"><%= Sys::GroupChange.new.locale(:old_id) %></th>
+  </tr>
+  <% for item in @items %>
+  <tr <%= cycle '', 'class="cycle"' %>>
+    <td style="width: 70px; text-align: center;"><%=h safe{item.group_change.change_division_label } %></td>
+    <td><%=h "#{safe{item.group_change.parent_code}}#{safe{item.group_change.parent_name}}" %>/<%=h "#{safe{item.group_change.code}}#{safe{item.group_change.name}}" %></td>
+    <td><%=h safe{item.group_change.email.gsub(/@.*/, '@..')} %></td>
+    <td><%=h "#{safe{item.group_change.old_code}}#{safe{item.group_change.old_name}}" %></td>
+
+  </tr>
+  <% end %>
+  </table>
+
+  <%= paginate @items %>

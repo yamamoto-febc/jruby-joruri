@@ -1,0 +1,16 @@
+<div class="crudTree">
+<div class="tree">
+  <p>中間データ<% if false %>&nbsp;<%= action_menu :new, ['[変更反映]', "#{new_sys_group_change_temporary_path(0, :sys_user_group) }?do=confirm"  ] %><% end %></p>
+  <div class="links">
+    <% for setting in @settings %>
+    <%= link_to setting[:name], sys_group_change_temporaries_path(0, setting[:id]) %><br />
+    <% end %>
+  </div>
+</div>
+
+<div class="content">
+<%= temporary_view('index', @data_cls) %>
+</div>
+<div class="footer"></div>
+</div>
+

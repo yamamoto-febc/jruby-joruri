@@ -1,0 +1,412 @@
+## Joruri CMS 1.3.2 インストールマニュアル                  2013.4.24
+
+**********************************************************************
+ 1 想定環境
+**********************************************************************
+
+[システム]
+OS         : CentOS 6.3
+Webサーバ  : Apache 2.2
+DBシステム : MySQL 5
+Ruby       : 1.9.1
+Rails      : 2.3.16
+
+[設定]
+IPアドレス : 192.168.0.2
+ドメイン   : 192.168.0.2
+
+**********************************************************************
+ 2 CentOS のインストール
+**********************************************************************
+
+CentOSをインストールします。
+
+インストール完了後、ご利用の環境に合わせて適切なセキュリティ設定を行ってください。
+CentOSに関するセキュリティ設定については、本マニュアルの範囲外となります。
+
+**********************************************************************
+ 3 事前準備
+**********************************************************************
+
+rootユーザに変更します。
+
+  $ su -
+
+必要なパッケージをインストールします。
+
+  # yum -y install \
+      wget make gcc-c++ patch \
+      libxslt libxslt-devel libxml2-devel \
+      libjpeg-devel libpng-devel \
+      librsvg2-devel ghostscript-devel \
+      ImageMagick ImageMagick-devel \
+      curl-devel nkf openldap-devel \
+      shared-mime-info \
+      httpd httpd-devel \
+      mysql-server mysql-devel
+
+必要なパッケージをダウンロードします。
+
+  # cd /usr/local/src/
+  # wget http://joruri.org/download/joruri-1.3.2.tar.gz \
+      http://core.ring.gr.jp/archives/lang/ruby/1.9/ruby-1.9.1-p378.tar.gz \
+      http://rubyforge.org/frs/download.php/60718/rubygems-1.3.5.tgz \
+      http://chasen.org/~taku/software/darts/src/darts-0.32.tar.gz \
+      "http://sourceforge.jp/frs/redir.php?m=jaist&f=%2Fchasen-legacy%2F32224%2Fchasen-2.4.4.tar.gz" \
+      "http://sourceforge.jp/frs/redir.php?m=iij&f=%2Fipadic%2F24435%2Fipadic-2.7.0.tar.gz" \
+      http://downloads.sourceforge.net/lame/lame-398-2.tar.gz
+
+Joruriユーザを作成します。
+
+  # useradd joruri
+  # passwd joruri
+
+Joruriソースコードを設置します。
+
+  # mkdir /var/share
+  # tar xvzf joruri-1.3.2.tar.gz -C /var/share
+  # chown -R joruri:joruri /var/share/joruri
+
+**********************************************************************
+ 4 Apache のインストール
+**********************************************************************
+
+設定ファイルを編集します。
+
+  # vi /etc/httpd/conf/httpd.conf
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+  ServerName 192.168.0.2    #変更
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+設定ファイルにエラーがないことを確認し、Apacheを起動します。
+
+  # /sbin/service httpd configtest
+  # /sbin/service httpd start
+
+自動起動に設定します。
+
+  # /sbin/chkconfig httpd on
+
+**********************************************************************
+ 5 MySQL のインストール
+**********************************************************************
+
+文字エンコーディングの標準を UTF-8 に設定します。
+
+  # vi /etc/my.cnf
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+  [mysqld]
+  character-set-server=utf8 #追加
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+MySQLを起動します。
+
+  # /usr/bin/mysql_install_db --user=mysql
+  # /sbin/service mysqld start
+
+自動起動に設定します。
+
+  # /sbin/chkconfig mysqld on
+
+rootユーザのパスワードを設定します。
+  # /usr/bin/mysqladmin -u root password "pass"
+
+joruriユーザを作成します。
+  # /usr/bin/mysql -u root -ppass \
+      -e "grant all on *.* to joruri@localhost IDENTIFIED BY 'pass'"
+
+※パスワードは適切な値を設定してください。
+本マニュアルでは pass と設定しています。
+
+**********************************************************************
+ 6 Ruby on Rails のインストール
+**********************************************************************
+
+======================================================================
+ 6.1 Ruby, RubyGems のインストール
+======================================================================
+
+Rubyをインストールします。
+
+  # cd /usr/local/src
+  # tar xvzf ruby-1.9.1-p378.tar.gz
+  # cd ruby-1.9.1-p378
+  
+  # wget http://bugs.ruby-lang.org/attachments/download/837/openssl-build-fix-v2.patch
+  # patch -p0 < openssl-build-fix-v2.patch
+    > File to patch:
+      # 以下のパスを順に入力
+      /usr/local/src/ruby-1.9.1-p378/ext/openssl/ossl.c
+      /usr/local/src/ruby-1.9.1-p378/ext/openssl/ossl.h
+      /usr/local/src/ruby-1.9.1-p378/ext/openssl/ossl_pkcs7.c
+      /usr/local/src/ruby-1.9.1-p378/ext/openssl/ossl_ssl.c
+      /usr/local/src/ruby-1.9.1-p378/ext/openssl/ossl_x509attr.c
+      /usr/local/src/ruby-1.9.1-p378/ext/openssl/ossl_x509crl.c
+  
+  # ./configure
+  # make && make install
+
+RubyGemsをインストールします。
+
+  # cd /usr/local/src
+  # tar xvzf rubygems-1.3.5.tgz
+  # cd rubygems-1.3.5
+  # ruby setup.rb
+
+======================================================================
+ 6.2 gemライブラリ のインストール
+======================================================================
+
+gemライブラリをインストールします。
+
+  # ruby /var/share/joruri/doc/install/gems.rb
+  
+以下のgemがインストールされます。
+
+  # gem install rake --no-ri --no-rdoc -v 0.8.7
+  # gem install rails --no-ri --no-rdoc --include-dependencies -v 2.3.16
+  # gem install ruby-ldap --no-ri --no-rdoc -v 0.9.10
+  # gem install rmagick --no-ri --no-rdoc -v 2.12.2
+  # gem install zipruby --no-ri --no-rdoc -v 0.3.6
+  # gem install mime-types --no-ri --no-rdoc -v 1.16
+  # gem install will_paginate --no-ri --no-rdoc -v 2.3.16
+  # gem install passiverecord --no-ri --no-rdoc -v 0.2
+  # gem install tamtam --no-ri --no-rdoc -v 0.0.3
+  # gem install mysql --no-ri --no-rdoc -v 2.8.1
+
+  ※補足
+    MySQLをソースからインストールしている場合はコマンドが異なります。
+    # env ARCHFLAGS="-arch x86_64" gem install mysql -- \
+    #     --with-mysql-config=/usr/local/mysql/bin/mysql_config
+
+======================================================================
+ 6.3 Phusion Passenger のインストール
+======================================================================
+
+Phusion Passengerをインストールします。
+
+  # gem install passenger --no-ri --no-rdoc -v 3.0.19
+  # passenger-install-apache2-module
+  
+  ( 画面の内容を確認して Enterキーを押してください。 )
+
+  ※補足
+    Apacheをソースからインストールしている場合は下記のように実行してください。
+    # export APXS2=/usr/local/apache2/bin/apxs
+    # export PATH=/usr/local/apache2/bin:$PATH
+    # passenger-install-apache2-module
+
+Apacheに設定を追加します。
+
+  # cp /var/share/joruri/config/samples/passenger.conf \
+      /etc/httpd/conf.d/passenger.conf
+
+**********************************************************************
+  7 Joruri のインストール
+**********************************************************************
+
+Joruriユーザに変更します。
+
+  # su - joruri
+  $ cd /var/share/joruri
+
+======================================================================
+ 7.1 設定ファイル
+======================================================================
+
+環境に応じて設定ファイルを編集します。
+
+Joruri基本設定
+
+  $ vi config/core.yml
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+  title  : Joruri
+  uri    : http://192.168.0.2/
+  proxy  : ※プロキシ
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+  
+  ※プロキシ
+  プロキシサーバが導入されている場合は
+  http://example:8080/ の様に記述してください。
+  
+DB接続情報
+
+  $ vi config/database.yml
+
+VirtualHost設定
+
+  $ vi config/virtual-hosts/joruri.conf
+
+======================================================================
+ 7.2 データベースの作成
+======================================================================
+
+データベースを作成します。
+
+  $ /usr/bin/mysql -u root -p -e "create database joruri"
+
+テーブルを作成します。
+
+  $ rake db:schema:load RAILS_ENV=production
+
+初期データを登録します。
+
+  $ rake db:seed RAILS_ENV=production
+
+サンプルデータを登録します。
+
+  $ rake db:seed:demo RAILS_ENV=production
+
+======================================================================
+ 7.3 VirtualHost の反映
+======================================================================
+
+Apacheに設定を追加します。
+  $ su -
+  # ln -s /var/share/joruri/config/virtual-hosts/joruri.conf \
+      /etc/httpd/conf.d/
+
+Apacheを再起動します。
+  # /sbin/service httpd configtest
+  # /sbin/service httpd restart
+
+
+ここまでの手順で Joruri にアクセスすることができます。
+
+  公開画面 : http://192.168.0.2/
+
+  管理画面 : http://192.168.0.2/_admin
+
+次のユーザが登録されています。
+
+    管理者（システム管理者）
+      ユーザID   : admin
+      パスワード : admin
+
+    一般ユーザ（徳島　太郎）
+      ユーザID   : user1
+      パスワード : user1
+
+    一般ユーザ（阿波　花子）
+      ユーザID   : user2
+      パスワード : user2
+
+    一般ユーザ（吉野　三郎）
+      ユーザID   : user3
+      パスワード : user3
+
+**********************************************************************
+ 8 Joruri のインストール (ふりがな・読み上げ機能)
+**********************************************************************
+
+LAMEをインストールします。
+
+  # cd /usr/local/src
+  # tar xvzf lame-398-2.tar.gz
+  # cd lame-398-2
+  # ./configure --prefix=/usr
+  # make && make install
+
+Dartsをインストールします。
+
+  # cd /usr/local/src
+  # tar xvzf darts-0.32.tar.gz
+  # cd darts-0.32
+  # ./configure --prefix=/usr
+  # make && make install
+
+ChaSenをインストールします。
+
+  # cd /usr/local/src
+  # tar xvzf chasen-2.4.4.tar.gz
+  # cd chasen-2.4.4
+  # ./configure --prefix=/usr
+  # make && make install
+
+IPAdicをインストールします。
+
+  # cd /usr/local/src
+  # tar xvzf ipadic-2.7.0.tar.gz
+  # cd ipadic-2.7.0
+  # ./configure --prefix=/usr
+
+  辞書をUTF8に変換します。
+  
+  # vi to_utf8.sh  #(新規作成)
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+  #!/bin/sh
+  for file in *.dic *.cha chasenrc
+  do
+  if [ -f $file ]; then
+      nkf --utf8 $file > tmpfile
+      mv tmpfile $file
+  fi
+  done
+  exit
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+  # chmod 744 to_utf8.sh
+  # ./to_utf8.sh
+  # `chasen-config --mkchadic`/makemat -i w
+  # `chasen-config --mkchadic`/makeda -i w chadic *.dic
+  # make install
+
+ChaOneをインストールします。
+
+  # cd /var/share/joruri/ext/morph/chaone
+  # chmod 775 configure
+  # ./configure
+  # make && make install
+
+GalateaTalkをインストールします。
+
+  # cd /var/share/joruri/ext/gtalk
+  # sed -i "s/ getline/ my_getline/" main.c
+  # sed -i "s/ getline/ my_getline/" getline.c
+  # chmod 775 configure
+  # ./configure
+  # make
+  # chmod 747 /var/share/joruri/ext/gtalk_filter.rb
+
+**********************************************************************
+ 9 定期実行設定
+**********************************************************************
+
+記事の公開/非公開処理を設定します。
+以下の例は、毎時15分毎に記事の公開/非公開処理を行い、
+公開ディレクトリに記事を静的ファイルとして書き出します。
+
+  # su - joruri
+  $ crontab -e
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+  10,25,40,55 * * * * /usr/local/bin/ruby /var/share/joruri/script/runner \
+    -e production "Script.run('sys/script/tasks/exec')"
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+  ※公開ディレクトリ : /var/share/joruri/public_00000001
+
+トップページや中間ページを静的ファイルとして書き出します。
+
+  $ crontab -e
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+  */15 * * * * /usr/local/bin/ruby /var/share/joruri/script/runner \
+    -e production "Script.run('cms/script/nodes/publish')"
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+音声ファイルを静的ファイルとして書き出します。
+
+  $ crontab -e
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+  */15 * * * * /usr/local/bin/ruby /var/share/joruri/script/runner \
+    -e production "Script.run('cms/script/talk_tasks/exec')"
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+新着記事ポータルで設定したAtomフィードを取り込みます。
+
+  $ crontab -e
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+  0 * * * * /usr/local/bin/ruby /var/share/joruri/script/runner \
+    -e production "Script.run('cms/script/feeds/read')"
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+**********************************************************************

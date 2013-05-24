@@ -1,0 +1,16 @@
+  <table class="index">
+  <tr>
+    <th style="width: 20%;"><%= Cms::DataText.new.locale(:name) %></th>
+    <th style="width: ;"><%= Cms::DataText.new.locale(:title) %></th>
+    <th style="width: 20%;"><%= Cms::Concept.new.locale(:name) %></th>
+  </tr>
+  <% for item in @items %>
+  <tr <%= cycle '', 'class="cycle"' %>>
+    <td><%=h item.entity.name %></td>
+    <td><%=h item.entity.title %></td>
+    <td><%=h safe{item.entity.concept.name} %></td>
+  </tr>
+  <% end %>
+  </table>
+
+  <%= paginate @items %>

@@ -1,0 +1,5 @@
+<div id="bnFaq" class="piece">
+<div class="pieceContainer">
+<div class="pieceBody"><a href="/faq/"><img src="/_common/themes/joruri/top/images/bn-faq.gif" alt="FAQ" title="FAQ" /></a></div>
+</div>
+</div>

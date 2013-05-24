@@ -1,0 +1,19 @@
+<style type="text/css">
+div.message { padding: 10px; font-size: 12px; }
+span.notice  { color: #c40; }
+</style>
+
+<p style="padding: 5px 10px; background-color: #eee;">事前確認</p>
+<div class="message">
+  <% if @messages[:common].size > 0 %>
+  <% @messages[:common].each do |m| %><%= m %><br /><% end %><br />
+  <% end %>
+  -- 新設<br />
+  <% @messages[:new].each do |m| %><%= m %><br /><% end %><br />
+  -- 移動<br />
+  <% @messages[:uni].each do |m| %><%= m %><br /><% end %><br />
+  -- 統合<br />
+  <% @messages[:itg].each do |m| %><%= m %><br /><% end %><br />
+  -- 廃止<br />
+  <% @messages[:del].each do |m| %><%= m %><br /><% end %><br />
+</div>

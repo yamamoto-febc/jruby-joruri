@@ -1,0 +1,10 @@
+<h2>組織変更 - 置換設定</h2>
+
+<div class="actionMenu">
+<%= action_menu :index %>
+<% if params[:action] == 'index' %>
+<%= link_to '組織設定', sys_group_changes_path %>
+<%= link_to '置換設定', sys_group_change_settings_path %>
+<%= link_to '中間データ', sys_group_change_temporaries_path(0, :sys_user_group) %>
+<% end %>
+</div>

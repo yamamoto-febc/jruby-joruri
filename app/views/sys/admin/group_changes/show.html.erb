@@ -1,0 +1,59 @@
+<div class="showMenu">
+
+</div>
+
+<p class="form">操作</p>
+<table class="show">
+  <tr>
+    <th><%= @item.locale(:change_division) %></th>
+    <td><%= h @item.change_division_label %></td>
+  </tr>
+</table>
+<br />
+
+<p class="form">基本情報</p>
+<table class="show">
+  <tr>
+    <th><%= @item.locale(:parent_code) %></th>
+    <td><%= h @item.parent_code %></td>
+  </tr><tr>
+    <th><%= @item.locale(:parent_name) %></th>
+    <td><%= h @item.parent_name %></td>
+  </tr>
+</table>
+
+<table class="show">
+  <tr>
+    <th><%= @item.locale(:code) %></th>
+    <td><%= h @item.code %></td>
+  </tr><tr>
+    <th><%= @item.locale(:name) %></th>
+    <td><%= h @item.name %></td>
+  </tr><tr>
+    <th><%= @item.locale(:name_en) %></th>
+    <td><%= h @item.name_en %></td>
+  </tr><tr>
+    <th><%= @item.locale(:email) %></th>
+    <td><%= h @item.email %></td>
+  </tr><tr>
+    <th><%= @item.locale(:ldap) %></th>
+    <td><%=h @item.ldap_label %></td>
+  </tr>
+  <%= layout_view @item, :container => :tr %>
+</table>
+<br />
+
+<p class="form">引継元情報</p>
+<table class="show">
+  <tr>
+    <th><%= @item.locale(:old_code) %></th>
+    <td><%= h @item.old_code %></td>
+  </tr><tr>
+    <th><%= @item.locale(:old_name) %></th>
+    <td><%= h @item.old_name %></td>
+  </tr><tr>
+    <th><%= @item.locale(:old_email) %></th>
+    <td><%= h @item.old_email %></td>
+  </tr>
+</table>
+

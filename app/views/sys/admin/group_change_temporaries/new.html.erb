@@ -1,0 +1,15 @@
+
+<p class="form">中間データ作成</p>
+<%= execute_logs_view %>
+<%= render :partial => 'examine' %>
+
+<% form_for :item, :url => {:action => :create} do |f| %>
+  <input type="hidden" name="do" value="change" />
+  <div style="text-align: center;">
+    <div style="background-color: #EEEEEE; padding: 20px; width: 400px; margin: 0 auto; text-align: center;">
+      <input type="submit" name="execute" value="作成する" style="width: 120px;"
+       onclick="return confirm('処理を実行してよろしいですか？');" />
+    </div>
+  </div>
+<% end %>
+

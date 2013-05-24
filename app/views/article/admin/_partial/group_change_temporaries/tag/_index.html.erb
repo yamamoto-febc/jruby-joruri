@@ -1,0 +1,16 @@
+  <table class="index">
+  <tr>
+    <th style="width: 60px; text-align: right;">記事番号</th>
+    <th style="width: ;"><%= Article::Doc.new.locale(:title) %></th>
+    <th style="width: ;">関連ワード</th>
+  </tr>
+  <% for item in @items %>
+  <tr <%= cycle '', 'class="cycle"' %>>
+    <td style="text-align: right;"><%=h safe{item.entity_doc.id} %></td>
+    <td><%=h safe{item.entity_doc.title} %></td>
+    <td><%=h safe{item.entity.word} %></td>
+  </tr>
+  <% end %>
+  </table>
+
+  <%= paginate @items %>

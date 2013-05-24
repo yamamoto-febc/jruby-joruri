@@ -1,0 +1,22 @@
+<table class="index">
+
+  <tr>
+    <th style="width: 60px; text-align: center;">詳細</th>
+    <th style="width: 70px; text-align: center;">変更区分</th>
+    <th style="width: ;">組織</th>
+    <th style="width: ;">組織メールアドレス</th>
+    <th style="width: ;">引継元組織</th>
+  </tr>
+
+  <% for item in @items %>
+  <tr <%= cycle '', 'class="cycle"' %>>
+    <td style="text-align: center;"><%= link_to :show, url_for(:action => :show, :id => item) %></td>
+    <td style="text-align: center;"><%=h item.change_division_label %></td>
+    <td style=""><%=h "#{item.parent_code}#{item.parent_name}" %>/<%=h "#{item.code}#{item.name}" %></td>
+    <td style=""><%=h "#{item.email}".gsub(/@.*/, '@..') %></td>
+    <td style=""><%=h "#{item.old_code}#{item.old_name}" %></td>
+  </tr>
+  <% end %>
+
+</table>
+

@@ -1,0 +1,72 @@
+@charset "UTF-8";
+@import "../base/init.css";
+@import "../base/style.css";
+@import "../piece/style.css";
+
+/* =========================================================
+   mailmagazine test
+========================================================= */
+.contentNewsletterForms .summary {
+  margin: 0 10px 10px;
+}
+.contentNewsletterForms h2 {
+  padding: 7px 10px;
+  background-color: #232f8c;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 100%;
+}
+.contentNewsletterComplete div.body,
+.contentNewsletterForms form {
+  margin: 10px 10px 0;
+}
+
+.contentNewsletterForms .column {
+  margin: 10px 0 20px;
+}
+.contentNewsletterForms .column .name {
+  padding: 4px 8px;
+  background-color: #f1f1f1;
+  border-left: 4px solid #232f92;
+}
+.contentNewsletterForms .column .field {
+  margin: 10px 0 0 15px;
+}
+.contentNewsletterForms .column .name .required {
+  color: #ff0000;
+}
+.contentNewsletterForms .submitters {
+  margin: 0;
+  padding: 0;
+}
+.contentNewsletterForms .change {
+  margin: 30px 0 0 15px;
+}
+.contentNewsletterForms .change a {
+  padding: 0 0 5px 8px;
+  background-image:url("./images/ic-list.gif");
+  background-repeat:no-repeat;
+  background-position:left 5px;
+}
+.contentNewsletterForms label {
+  margin: 0 10px 0 0;
+}
+
+/* Errors
+----------------------------------------------- */
+.errorExplanation h2 {
+  padding: 4px;
+  background-color: #ffdddd;
+  font-weight: bold;
+}
+.contentNewsletterForms .errorExplanation,
+.contentNewsletterForms .errorExplanation h2 {
+  color: #ff0000;
+}
+.errorExplanation p {
+  margin-top: 4px;
+}
+.errorExplanation ul {
+  list-style-type: disc;
+  margin: 2px 20px 15px 20px;
+}

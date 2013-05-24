@@ -1,0 +1,783 @@
+@charset "UTF-8";
+/* =========================================================
+   Pieces
+========================================================= */
+
+/* accessibility-tool
+----------------------------------------------- */
+#commonHeader {
+  width: 100%;
+  height: auto;
+  background-color: #ececec;
+  font-size: 12px;
+}
+#commonHeader .pieceContainer {
+  padding: 4px 10px;
+  text-align: right;
+}
+#headerBody .piece {
+  margin-bottom: 0;
+}
+.head-tools {
+  width: 100%;
+  margin: 0;
+  padding: 4px 0 3px;
+  background-position: left top;
+  text-align: right;
+}
+#furiganaAttention {
+  padding-left: 15px;
+  padding-top: 5px;
+  background-color: #ececec;
+  font-size: 120%;
+  text-align: center;
+}
+.rubyOn #furiganaAttention {
+  display: block;
+}
+#nocssread {
+  display: none;
+  margin-right: -9999px;
+}
+.head-tools a {
+  margin-right: 8px;
+}
+.head-tools img {
+  margin-right: 0 3px 0 0;
+  vertical-align: middle;
+}
+
+/* font-size
+---------------------- */
+img.font {
+  margin-top: 3px;
+}
+a#fontSmall, a#fontMiddle, a#fontLarge {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-top: 1px;
+  vertical-align: middle;
+  text-indent: 9999px;
+  overflow: hidden;
+}
+a#fontSmall {
+  background-image: url(./images/bt-s01.gif);
+  background-repeat: no-repeat;
+}
+a#fontSmall:hover {
+  background-image: url(./images/bt-s02.gif);
+}
+a#fontMiddle {
+  background-image: url(./images/bt-m01.gif);
+  background-repeat: no-repeat;
+}
+a#fontMiddle:hover {
+  background-image: url(./images/bt-m02.gif);
+}
+a#fontLarge {
+  background-image: url(./images/bt-l01.gif);
+  background-repeat: no-repeat;
+}
+a#fontLarge:hover {
+  background-image: url(./images/bt-l02.gif);
+}
+*html a#fontSmall, *html a#fontMiddle, *html a#fontLarge {
+  margin-top: 4px;
+}
+
+/* color
+---------------------- */
+a#themeBlack, a#themeBlue, a#themeWhite {
+  display: inline-block;
+  width: 22px;
+  vertical-align: middle;
+  overflow: hidden;
+  height: 20px;
+  margin-top: 1px;
+  text-indent: 9999px;
+}
+a#themeBlack {
+  background-image: url(./images/bg-black.gif);
+  background-repeat: no-repeat;
+}
+a#themeBlue {
+  background-image: url(./images/bg-blue.gif);
+  background-repeat: no-repeat;
+}
+a#themeWhite {
+  background-image: url(./images/bg-white.gif);
+  background-repeat: no-repeat;
+}
+
+/* furigana
+---------------------- */
+a#navigationRuby {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: middle;
+  width: 121px;
+  height: 20px;
+  line-height: 2;
+  background-image: url(./images/bg-furigana01.gif);
+  background-repeat: no-repeat;
+  text-indent: 9999px;
+}
+a#navigationRuby.rubyOn {
+  background-image: url(./images/bg-furigana-on.gif);
+}
+a#navigationRuby.rubyOff:hover {
+  background-image: url(./images/bg-furigana02.gif)
+}
+
+/* yomiage
+---------------------- */
+a#navigationTalk {
+  display: inline-block;
+  width: 82px;
+  height: 20px;
+  line-height: 2;
+  vertical-align: middle;
+  overflow: hidden;
+  background-image: url(./images/bg-yomiage01.gif);
+  background-repeat: no-repeat;
+  text-indent: 9999px;
+}
+a#navigationTalk:hover {
+  background-image: url(./images/bg-yomiage02.gif)
+}
+a#navigationTalk.talkOn {
+  width: 82px;
+  background-image: url(./images/bg-yomiage-on.gif);
+}
+a:hover#navigationTalk.talkOn {
+  width: 82px;
+  background-image: url(./images/bg-yomiage-on.gif);
+}
+#navigationTalkPlayer {
+  position: absolute;
+}
+#navigationTalkPlayer object {
+  position: relative;
+  top: 25px;
+  left: -190px;
+}
+*html #navigationTalkPlayer object {
+  top: 28px;
+}
+html:first-child #navigationTalkPlayer {
+  position: absolute;
+}
+html:first-child #navigationTalkPlayer object {
+  position: relative;
+  top: 25px;
+  left: 340px;
+}
+
+/* riyouannai
+---------------------- */
+a.riyou {
+  display: inline-block;
+  width: 82px;
+  height: 20px;
+  line-height: 2;
+  vertical-align: middle;
+  overflow: hidden;
+  background-image: url(./images/bg-annai01.gif);
+  background-repeat: no-repeat;
+  text-indent: 9999px;
+}
+a.riyou:hover {
+  background-image: url(./images/bg-annai02.gif);
+}
+
+/* navigationNotice
+---------------------- */
+#navigationNotice {
+  padding: 6px 10px;
+  background-color: #dddddd;
+  font-weight: bold;
+}
+
+/* common banner
+----------------------------------------------- */
+#commonBanner {
+  clear: both;
+  height: 70px; 
+  margin: 0;
+  padding: 0;
+  background-image: url(./images/bg-header.gif);
+  background-repeat: no-repeat;
+  background-position: left top;
+  font-size: 12px;
+  text-align: right;
+}
+#commonBanner .logo {
+  float: left;
+  width: 29%;
+  height: 70px;
+}
+#commonBanner .logo a {
+  display: block;
+  width: 100%;
+  height: 0 !important;
+  height /**/: 70px; /* gokanmode */
+  overflow: hidden;
+  padding-top: 70px;
+  outline: 0;
+}
+#commonBanner .menu {
+  float: right;
+  width: 70%;
+  height: 70px;
+  margin: 0px;
+  text-align: right;
+}
+#commonBanner .upperMenu {
+  margin: 5px 0 0;
+  padding-right: 10px;
+}
+#commonBanner .upperMenu .keitai {
+  display: inline-block;
+}
+#commonBanner .upperMenu .smart {
+  display: inline-block;
+  margin-right: 10px;
+}
+#commonBanner .lowerMenu {
+  margin: 0 0 5px;
+  padding-right: 10px;
+}
+#commonBanner .menu form {
+  display: inline;
+}
+input#search-box, input#search-button,
+a.chiiki img, a.soshiki img, a.toiawase, a.siteMap,
+input.submit {
+  vertical-align: middle;
+}
+input#search-box {
+  width: 130px;
+}
+
+/* otoiawase
+---------------------- */
+a.toiawase {
+  display: inline-block;
+  width: 80px;
+  height: 14px;
+  line-height: 2;
+  vertical-align: middle;
+  overflow: hidden;
+  background-image: url(./images/bg-toiawase.gif);
+  background-repeat: no-repeat;
+  background-position: left top;
+  text-indent: 9999px;
+}
+a.toiawase:hover {
+  background-image: url(./images/bg-toiawase.gif);
+  background-position: left -14px;
+}
+
+/* sitemap
+---------------------- */
+a.siteMap {
+  display: inline-block;
+  width: 80px;
+  height: 14px;
+  line-height: 2;
+  vertical-align: middle;
+  overflow: hidden;
+  background-image: url(./images/bg-sitemap.gif);
+  background-repeat: no-repeat;
+  background-position: left top;
+  text-indent: 9999px;
+}
+a.siteMap:hover {
+  background-image: url(./images/bg-sitemap.gif);
+  background-position: left -14px;
+}
+
+/* global navi
+----------------------------------------------- */
+#globalNavi {
+  clear: both;
+  width: 100.3%;
+  height: 34px;
+}
+#globalNavi a {
+  display: block;
+  float: left;
+  width: 12.45%;
+  height: 34px;
+  line-height: 34px;
+  background-image: url(./images/bg-menu02.gif);
+  background-repeat: repeat-x;
+  background-position: left top;
+  color: #ffffff;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+}
+#globalNavi a:hover {
+  background-image: url(./images/bg-menu02.gif);
+  background-repeat: repeat-x;
+  background-position: left -40px;
+  color: #ffffff;
+}
+#globalNavi a.top {
+  background-image: url(./images/bg-menu01.gif);
+}
+#globalNavi a.bosai {
+  background-image: url(./images/bg-menu03.gif);
+}
+#globalNavi a.bosai:hover {
+  background-image: url(./images/bg-menu03.gif);
+  background-position: left -40px;
+}
+*:first-child+html #globalNavi a {
+  height: auto;
+}
+
+/* IE */
+* html #globalNavi {
+  width: 100%;
+}
+* html #globalNavi a.bosai {
+  width: 12.2%;
+}
+*:first-child+html #globalNavi {
+  width: 100.3%;
+}
+
+/* global navi active
+----------------------------------------------- */
+#page-index #globalNavi a.top,
+#globalNavi a.current,
+#globalNavi a.current:hover {
+  background-repeat: repeat-x;
+  background-position: left -80px;
+  color: #000000;
+}
+
+/* footer
+----------------------------------------------- */
+/* address
+---------------------- */
+#address {
+  padding:10px 5px;
+  border-top: 1px solid #cccccc;
+  border-bottom: 1px solid #cccccc;
+}
+
+/* footer-navi
+---------------------- */
+#footerNavi {
+  width: 100%;
+  background-color: #001c66;
+}
+#footerNavi .pieceBody {
+  padding: 10px 0;
+  color: #ffffff;
+  text-align: center;
+}
+#footerNavi img {
+  margin-left: 5px;
+  vertical-align: middle;
+}
+#footerNavi a {
+  color: #ffffff;
+}
+#footerNavi a:visited {
+  color: #ffffff;
+}
+#footerNavi a:hover {
+  color: #ffffff;
+}
+
+/* breadCrumbs
+----------------------------------------------- */
+#breadCrumbs {
+  clear: both;
+  margin: 7px 0 0;
+  line-height: 1.3;
+}
+#breadCrumbs .direction {
+  margin: 0;
+}
+#pageTop {
+  text-align: right;
+}
+
+/* calendar
+----------------------------------------------- */
+#calendarDailyLinks {
+  width: 170px;
+}
+* html .calender {
+  height: 1%;
+}
+#calendar .pieceContainer {
+  width: 100%;
+}
+#menu #calendar .pieceHeader,
+#links #calendar .pieceHeader ,
+#content #calendar .pieceHeader ,
+#menu #calendarDailyLinks .pieceHeader ,
+#links #calendarDailyLinks .pieceHeader ,
+#content #calendarDailyLinks .pieceHeader {
+  height: 8px;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+  background-image:url(./images/bg-ring.gif);
+  background-repeat: no-repeat;
+  background-position: left top;
+  font-size: 0;
+  text-indent: -9999px;
+}
+#calendar .pieceBody ,
+#calendarDailyLinks .pieceBody {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-image:url(./images/bg-calendar-repeat.gif);
+  background-repeat: repeat-y;
+  background-position: left top;
+}
+#calendar .calendar ,
+#calendarDailyLinks .calendar {
+  float: left;
+  width: 162px;
+  padding: 5px 0 0 6px;
+  font-size: 12px;
+  font-weight: bold;
+}
+#calendar .links ,
+#calendarDailyLinks .links {
+  clear: both;
+  padding: 5px 0 10px;
+  background-image: url(./images/bg-calendar-bottom.gif);
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  text-align: center;
+}
+#calendar .calendar .wdays .wday ,
+#calendarDailyLinks .calendar .wdays .wday {
+  display: block;
+  float: left;
+  width: 17px;
+  padding: 2px;
+  border-top: solid 1px #aaaaaa;
+  border-right: solid 1px #aaaaaa;
+  border-bottom: solid 1px #aaaaaa;
+  text-align: center;
+}
+#calendar .calendar .days .day ,
+#calendarDailyLinks .calendar .days .day {
+  display: block;
+  float: left;
+  width: 17px;
+  padding: 2px;
+  border-right: solid 1px #aaaaaa;
+  border-bottom: solid 1px #aaaaaa;
+  text-align: center;
+}
+#calendar .calendar .wdays .sun ,
+#calendar .calendar .days .sun ,
+#calendarDailyLinks .calendar .wdays .sun ,
+#calendarDailyLinks .calendar .days .sun {
+  border-left: solid 1px #aaaaaa;
+}
+#calendar .calendar .days .sat ,
+#calendarDailyLinks .calendar .days .sat {
+  color: #3366ff;
+}
+#calendar .calendar .days .sun ,
+#calendar .calendar .days .holiday ,
+#calendarDailyLinks .calendar .days .sun ,
+#calendarDailyLinks .days .holiday {
+  color: #ff0000;
+}
+.january {
+  background-image: url(./images/bg-january.gif);
+}
+.february {
+  background-image: url(./images/bg-february.gif);
+}
+.march {
+  background-image: url(./images/bg-march.gif);
+}
+.april {
+  background-image: url(./images/bg-april.gif);
+}
+.may {
+  background-image: url(./images/bg-may.gif);
+}
+.june {
+  background-image: url(./images/bg-june.gif);
+}
+.july {
+  background-image: url(./images/bg-july.gif);
+}
+.august {
+  background-image: url(./images/bg-august.gif);
+}
+.september {
+  background-image: url(./images/bg-september.gif);
+}
+.october {
+  background-image: url(./images/bg-october.gif);
+}
+.november {
+  background-image: url(./images/bg-november.gif);
+}
+.december {
+  background-image: url(./images/bg-december.gif);
+}
+.january, .february, .march, .april, .may, .june, .july, .august, .september, .october, .november, .december {
+  height: 25px;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  text-indent: -9999px;
+}
+.calendar .prevMonth, .calendar .nextMonth {
+  overflow: hidden;
+  color: #ffffff;
+  text-indent: -9999px;
+}
+#calendarDailyLinks .links .pagination {
+   text-align: center;
+}
+.links a.prevMonth {
+  padding-left: 13px;
+  background-image: url(./images/ic-prevmonth.gif);
+  background-repeat: no-repeat;
+  background-position: 4% center;
+}
+.links a.nextMonth {
+  padding-right:13px;
+  background-image: url(./images/ic-nextmonth.gif);
+  background-repeat: no-repeat;
+  background-position: 96% center;
+}
+
+/* piece
+----------------------------------------------- */
+.piece {
+  margin-bottom: 5px;
+}
+#footer .piece {
+  margin-bottom: 0;
+}
+
+/* ad
+----------------------------------------------- */
+#adBanner .pieceBody {
+  padding: 0;
+}
+#adBanner a {
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* footer-ad
+----------------------------------------------- */
+#footerAdBanner {
+  background-color: #eeeeee;
+  text-align: center;
+}
+#footerAdBanner .pieceBody {
+  padding: 10px 0 5px;
+}
+#footerAdBanner a {
+  margin: 0 10px;
+}
+
+/* page-title
+----------------------------------------------- */
+*html #pageTitle {
+  height: 0;
+}
+#pageTitle .pieceContainer {
+  margin: 0;
+  padding: 0;
+  background-color: #d0e6f3;
+  background-image: url(./images/tl-pegetitle-repeat.gif);
+  background-repeat: repeat-x;
+  background-position: left top;
+}
+#pageTitle .pieceBody {
+  background-image: url(./images/tl-pagetitle.gif);
+  background-repeat: no-repeat;
+  border: 1px solid #233f9b;
+}
+#pageTitle h1 {
+  padding: 7px 0 4px 20px;
+  font-weight: bold;
+  font-size: 200%;
+}
+h1 {
+  color: #000000;
+}
+
+/* side-list
+----------------------------------------------- */
+#links ul,
+#menu ul {
+  padding: 5px 5px 0;
+  background-color: #f5f5f5;
+}
+#links li,
+#menu li {
+  padding: 0 0 5px 8px;
+  background-image: url(./images/ic-list.gif);
+  background-repeat: no-repeat;
+  background-position: left 5px;
+}
+#menu .pieceHeader,
+#links .pieceHeader {
+  line-height: 25px;
+  padding: 0 5px 0 10px;
+  background-image: url(./images/tl-side.gif);
+  background-repeat: repeat-y;
+  background-position: left top;
+}
+#menu .pieceHeader h2,
+#links .pieceHeader h2 {
+  color: #ffffff;
+  font-weight: bold;
+}
+
+/* Doc Tabs
+--------------------------------------------------------- */
+#docTab {
+  margin-bottom: 15px;
+}
+
+/* tabs
+------------------------------------- */
+#docTabPortal .tabs,
+#docTab .tabs {
+  width: 100%;
+}
+#docTabPortal .tabs a,
+#docTab .tabs a {
+  display: inline-block;
+  float: left;
+  width: 15%; 
+  line-height: 24px;
+  margin-right: 3px;
+  padding: 0 3px;
+  border: 1px solid #cccccc;
+  border-bottom: none;
+  background-image: url(./images/bg-tab1.gif);
+  color: #333333;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  white-space: nowrap;
+}
+#docTabPortal .tabs:after,
+#docTab .tabs:after {  
+  content: ".";
+  display: block;
+  visibility: hidden;
+  height: 0.1px;
+  font-size: 0.1em;
+  line-height: 0;
+  clear: both;
+}
+#docTabPortal .tabs a.bosai,
+#docTab .tabs a.bosai {
+  background-image: url(./images/bg-tab2.gif);
+  color: #cc0000;
+}
+#docTabPortal .tabs a:hover,
+#docTab .tabs a:hover {
+  background-position: 0 -100px;
+  color: #333333;
+}
+#docTabPortal .tabs a.bosai:hover,
+#docTab .tabs a.bosai:hover {
+  background-position: 0 -100px;
+  color: #cc0000;
+}
+#docTabPortal .tabs a.current,
+#docTab .tabs a.current {
+  background-position: 0 -200px;
+  color: #ffffff;
+}
+
+/* content
+------------------------------------- */
+#docTabPortal .wrapper,
+#docTab .wrapper {
+  clear: both;
+  width: 100%;
+  margin: 0;
+  border: 1px solid #cccccc;
+}
+#docTabPortal .content,
+#docTab .content {
+  clear: both;
+  height: auto !important;
+  min-height: 100px;
+  padding: 10px 0;
+}
+#docTabPortal .content ul,
+#docTab .content ul {
+  padding: 0 20px 0 15px;
+}
+#docTabPortal .content li,
+#docTab .content li {
+  line-height: 1.5;
+  margin: 0;
+  padding: 0 0 0 10px;
+  background-image: url(./images/ic-list-shinchaku.gif);
+  background-repeat: no-repeat;
+  background-position: left 7px;
+}
+
+/* links
+------------------------------------- */
+#docTabPortal .links .feed,
+#docTab .links .feed {
+  position: absolute;
+  float: left;
+  margin-top: 10px;
+}
+#docTabPortal .links .feed a,
+#docTab .links .feed a {
+  display: inline-block;
+} 
+#docTabPortal .links .feed a.rss,
+#docTab .links .feed a.rss {
+  width: 40px;
+  height: 0;
+  vertical-align: middle;
+  overflow: hidden;
+  margin-left: 15px;
+  padding-top: 13px;
+  background-image: url(./images/bt-rss.gif);
+  background-repeat: no-repeat;
+} 
+#docTabPortal .links .feed a.atom,
+#docTab .links .feed a.atom {
+  width: 45px;
+  height: 0;
+  vertical-align: middle;
+  overflow: hidden;
+  margin-left: 5px;
+  padding-top: 13px;
+  background-image: url(./images/bt-atom.gif);
+  background-repeat: no-repeat;
+}
+#docTabPortal .links .more, .links .more {
+  padding: 10px 20px 10px 10px;
+  text-align: right;
+}
+#docTabPortal .links .more a,
+#docTab .links .more a {
+  overflow: hidden;
+}

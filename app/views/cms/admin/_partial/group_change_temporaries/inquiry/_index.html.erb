@@ -1,0 +1,18 @@
+  <table class="index">
+  <tr>
+    <th style="width: 20%;">課名</th>
+    <th style="width: 20%;">室・担当</th>
+    <th style="width: 20%;">メールアドレス</th>
+    <th style="width: ;">情報</th>
+  </tr>
+  <% for item in @items %>
+  <tr <%= cycle '', 'class="cycle"' %>>
+    <td><%=h safe{item.entity.group.name} %></td>
+    <td><%=h safe{item.entity.charge} %></td>
+    <td><%=h safe{item.entity.email} %></td>
+    <td><%=hbr safe{item.entity_parent_info} %></td>
+  </tr>
+  <% end %>
+  </table>
+
+  <%= paginate @items %>

@@ -1,0 +1,15 @@
+<%
+  return '' unless @log
+%>
+<style type="text/css">
+  div.messageHeader { padding: 10px; font-size: 12px; }
+  div.messageBody { padding: 10px; font-size: 12px; color: #c40; }
+</style>
+
+<p style="padding: 5px 10px; background-color: #eee;">実行ログ</p>
+<% if @log.execute_state == 'preparing' || @log.execute_state == 'executing' %>
+<div class="messageHeader"><%=h safe{@log.executed_at.strftime('%Y-%m-%d %H:%M:%S')} %> -- <%=h @log.title %></div>
+<div class="messageBody"><%=hbr @log.body %></div>
+<% else %>
+<div class="notice"><%=h safe{@log.executed_at.strftime('%Y-%m-%d %H:%M:%S')} %> -- <%=h @log.title %></div>
+<% end %>

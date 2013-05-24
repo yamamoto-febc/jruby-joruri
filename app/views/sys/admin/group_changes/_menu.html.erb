@@ -1,0 +1,16 @@
+<h2>組織変更 - 組織設定</h2>
+
+<div class="actionMenu">
+<%= action_menu :new %>
+<%= action_menu :index %>
+<%= action_menu :show %>
+<%= action_menu :edit    if safe{@item.editable?} %>
+<%= action_menu :destroy if safe{@item.deletable?} %>
+
+<% if params[:action] == 'index' %>
+<span class="separator"></span>
+<%= link_to '組織設定', sys_group_changes_path %>
+<%= link_to '置換設定', sys_group_change_settings_path %>
+<%= link_to '中間データ', sys_group_change_temporaries_path(0, :sys_user_group) %>
+<% end %>
+</div>

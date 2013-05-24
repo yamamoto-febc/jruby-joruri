@@ -1,0 +1,11 @@
+<div class="mainMenu">
+<%= render :partial => 'layouts/admin/cms/menu', :locals => {:current => :content} %>
+</div>
+
+<div class="contentMenu">
+<%= link_to '記事一覧', faq_docs_path %>
+<% if Core.user.has_auth?(:designer) %>
+<%= link_to '分野設定', faq_categories_path(:parent => 0) %>
+<%= link_to '記事設定', faq_content_settings_path %>
+<% end %>
+</div>
