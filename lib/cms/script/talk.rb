@@ -22,14 +22,14 @@ class Cms::Script::Talk
 protected
   def self.lock_process
     lock_key = '#making'
-    if lock = Cms::TalkTask.find_by_path(lock_key)
+    if lock = Cms::TalkJob.find_by_path(lock_key)
       if lock.updated_at.strftime('%s').to_i + (60 * 10) < Time.now.strftime('%s').to_i
         lock.destroy
       else
         return nil
       end
     end
-    lock = Cms::TalkTask.new(:site_id => 0, :path => lock_key, :uri => lock_key)
+    lock = Cms::TalkJob.new(:site_id => 0, :path => lock_key, :uri => lock_key)
     return nil unless lock.save
     return lock
   end
@@ -56,7 +56,7 @@ protected
         :uri        => node.public_uri,
         :regular    => 1
       }
-      if Cms::TalkTask.add(params)
+      if Cms::TalkJob.add(params)
           @@log1.puts("add: #{params[:site_id]}, #{params[:uri]}, #{params[:path]}")
           @@added += 1
       end
@@ -72,11 +72,11 @@ protected
     success = 0
     error   = 0
     
-    ## find tasks
+    ## find jobs
     cond = ['site_id != 0']
-    tasks = Cms::TalkTask.find(:all, :conditions => cond, :order => 'regular DESC, id')
-    if tasks.size == 0
-      @@log2.close("Finished. No tasks.")
+    jobs = Cms::TalkJob.find(:all, :conditions => cond, :order => 'regular DESC, id')
+    if jobs.size == 0
+      @@log2.close("Finished. No jobs.")
       return true
     end
     
@@ -84,37 +84,37 @@ protected
     
     ## make
     count = 0
-    tasks.each_with_index do |task, idx|
+    jobs.each_with_index do |job, idx|
       begin
         count += 1
         if count % 50 == 0
           GC.start
         end
         
-        @@log2.puts("make: #{task.id}, #{task.site_id}, #{task.uri}")
-        #@@log2.puts("make: #{task.id}, #{task.site_id}, #{task.uri}, #{task.sound_path}")
-        #@@log2.puts("make: #{task.id}, #{task.site_id}, #{task.content_uri}, #{task.sound_path}")
+        @@log2.puts("make: #{job.id}, #{job.site_id}, #{job.uri}")
+        #@@log2.puts("make: #{job.id}, #{job.site_id}, #{job.uri}, #{job.sound_path}")
+        #@@log2.puts("make: #{job.id}, #{job.site_id}, #{job.content_uri}, #{job.sound_path}")
         
-        unless content = task.read_content
+        unless content = job.read_content
           raise 'ReadContentError'
         end
         
-        if task.regular == 1 && task.content == content && FileTest.exist?(task.sound_path)
+        if job.regular == 1 && job.content == content && FileTest.exist?(job.sound_path)
           @@log2.puts(" => No changed.")
           next
         end
-        file = task.make_sound(content)
+        file = job.make_sound(content)
         if !file || File::stat(file[:path]).size == 0
           raise 'MakeSoundError'
         end
         
-        dir = ::File.dirname(task.sound_path)
+        dir = ::File.dirname(job.sound_path)
         FileUtils.mkdir_p(dir) unless FileTest.exist?(dir)
-        FileUtils.mv(file[:path], task.sound_path)
-        ::File.chmod(0644, task.sound_path)
-        task.content = content
-        task.result  = 'success'
-        task.terminate
+        FileUtils.mv(file[:path], job.sound_path)
+        ::File.chmod(0644, job.sound_path)
+        job.content = content
+        job.result  = 'success'
+        job.terminate
         
         success += 1
         @@log2.puts(" => Success.")
@@ -123,12 +123,12 @@ protected
       #  success += 1
       rescue => e
         @@log2.puts(" => #{e}")
-        if task.result == 'error'
-          FileUtils.rm(task.sound_path) if FileTest.exist?(task.sound_path)
-          task.destroy
+        if job.result == 'error'
+          FileUtils.rm(job.sound_path) if FileTest.exist?(job.sound_path)
+          job.destroy
         else
-          task.result = 'error'
-          task.terminate
+          job.result = 'error'
+          job.terminate
         end
         error += 1
       end

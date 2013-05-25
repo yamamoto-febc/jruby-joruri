@@ -2,7 +2,7 @@
 class Article::Unit < Sys::Group
   include Cms::Model::Base::Page
   include Cms::Model::Base::Page::Publisher
-  include Cms::Model::Base::Page::TalkTask
+  include Cms::Model::Base::Page::TalkJob
   
   belongs_to :parent, :foreign_key => 'parent_id', :class_name => "#{self}"
   

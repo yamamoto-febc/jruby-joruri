@@ -3,7 +3,7 @@ class Cms::Node < ActiveRecord::Base
   include Sys::Model::Base
   include Cms::Model::Base::Page
   include Cms::Model::Base::Page::Publisher
-  include Cms::Model::Base::Page::TalkTask
+  include Cms::Model::Base::Page::TalkJob
   include Cms::Model::Base::Node
   include Sys::Model::Tree
   include Sys::Model::Rel::Unid
@@ -240,7 +240,7 @@ protected
   class Page < Cms::Node
     include Sys::Model::Rel::Recognition
     include Cms::Model::Rel::Inquiry
-    include Sys::Model::Rel::Task
+    include Sys::Model::Rel::Job
     
     validate :validate_inquiry,
       :if => %Q(state == 'public')

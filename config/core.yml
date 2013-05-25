@@ -9,6 +9,6 @@ test:
   proxy  :
 
 development:
-  title  : 
-  uri    : 
+  title  : Joruri
+  uri    : http://localhost:3000/
   proxy  : 

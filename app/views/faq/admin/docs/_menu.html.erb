@@ -1,6 +1,6 @@
 <%
 
-pubdate = safe{@item.find_task_by_name('publish').strftime('%Y-%m-%d %H:%M')}
+pubdate = safe{@item.find_job_by_name('publish').strftime('%Y-%m-%d %H:%M')}
 pubmsg  = "公開してよろしいですか？"
 pubmsg  = "公開日時が設定されています。\n\n[ #{pubdate} ]\n\n直ちに公開してよろしいですか？" if pubdate
 pubmsg  = "公開日時が設定されています。\n（ #{pubdate} ）\n直ちに公開してよろしいですか？" if pubdate

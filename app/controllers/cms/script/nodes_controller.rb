@@ -63,7 +63,7 @@ class Cms::Script::NodesController < Cms::Controller::Script::Publication
     end
   end
   
-  def publish_by_task
+  def publish_by_job
     begin
       item = params[:item]
       if item.state == 'recognized' && item.model == "Cms::Page"
@@ -84,7 +84,7 @@ class Cms::Script::NodesController < Cms::Controller::Script::Publication
         end
         
         puts "OK: Published"
-        params[:task].destroy
+        params[:job].destroy
       end
     rescue => e
       puts "Error: #{e}"
@@ -92,7 +92,7 @@ class Cms::Script::NodesController < Cms::Controller::Script::Publication
     return render(:text => "OK")
   end
   
-  def close_by_task
+  def close_by_job
     begin
       item = params[:item]
       if item.state == 'public' && item.model == "Cms::Page"
@@ -102,7 +102,7 @@ class Cms::Script::NodesController < Cms::Controller::Script::Publication
         item.close
         
         puts "OK: Closed"
-        params[:task].destroy
+        params[:job].destroy
       end
     rescue => e
       puts "Error: #{e}"

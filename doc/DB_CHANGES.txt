@@ -449,8 +449,8 @@
     PRIMARY KEY (id),
     KEY piece_id (piece_id)
   );
-  DROP TABLE cms_talk_tasks;
-  CREATE TABLE cms_talk_tasks (
+  DROP TABLE cms_talk_jobs;
+  CREATE TABLE cms_talk_jobs (
     id int(11) NOT NULL AUTO_INCREMENT,
     unid int(11) DEFAULT NULL,
     dependent varchar(64) DEFAULT NULL,

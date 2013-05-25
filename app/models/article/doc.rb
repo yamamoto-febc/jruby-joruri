@@ -3,13 +3,13 @@ class Article::Doc < ActiveRecord::Base
   include Sys::Model::Base
   include Cms::Model::Base::Page
   include Cms::Model::Base::Page::Publisher
-  include Cms::Model::Base::Page::TalkTask
+  include Cms::Model::Base::Page::TalkJob
   include Sys::Model::Rel::Unid
   include Sys::Model::Rel::UnidRelation
   include Sys::Model::Rel::Creator
   include Cms::Model::Rel::Inquiry
   include Sys::Model::Rel::Recognition
-  include Sys::Model::Rel::Task
+  include Sys::Model::Rel::Job
   include Cms::Model::Rel::Map
   include Sys::Model::Rel::File
   include Sys::Model::Rel::EditableGroup

@@ -40,14 +40,14 @@ end
 #   
 # rescue LoadError => boom
 #   desc "Run the test suite."
-#   task :test do
+#   job :test do
 #      system "ruby -Ilib:ext:bin:test -e 'require \"test/test_associations.rb\"; require \"test/test_base.rb\"'"
 #   end
 # 
-#   task(:default) do
+#   job(:default) do
 #     puts "You are missing a dependency required for meta-operations on this gem."
 #     puts "#{boom.to_s.capitalize}."
 #   
-#     Rake::Task["test"].invoke 
+#     Rake::Job["test"].invoke 
 #   end    
 # end

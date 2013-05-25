@@ -2,7 +2,7 @@ class Article::Area < ActiveRecord::Base
   include Sys::Model::Base
   include Cms::Model::Base::Page
   include Cms::Model::Base::Page::Publisher
-  include Cms::Model::Base::Page::TalkTask
+  include Cms::Model::Base::Page::TalkJob
   include Sys::Model::Tree
   include Sys::Model::Rel::Unid
   include Sys::Model::Rel::Creator

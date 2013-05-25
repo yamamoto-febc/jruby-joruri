@@ -470,7 +470,7 @@ ActiveRecord::Schema.define(:version => 20110803122623) do
     t.string   "path"
   end
 
-  create_table "cms_talk_tasks", :force => true do |t|
+  create_table "cms_talk_jobs", :force => true do |t|
     t.integer  "unid"
     t.string   "dependent",    :limit => 64
     t.datetime "created_at"
@@ -479,7 +479,7 @@ ActiveRecord::Schema.define(:version => 20110803122623) do
     t.string   "content_hash"
   end
 
-  add_index "cms_talk_tasks", ["unid", "dependent"], :name => "unid"
+  add_index "cms_talk_jobs", ["unid", "dependent"], :name => "unid"
 
   create_table "enquete_answer_columns", :force => true do |t|
     t.integer "answer_id"
@@ -887,7 +887,7 @@ ActiveRecord::Schema.define(:version => 20110803122623) do
     t.integer  "sort_no"
   end
 
-  create_table "sys_tasks", :force => true do |t|
+  create_table "sys_jobs", :force => true do |t|
     t.integer  "unid"
     t.datetime "created_at"
     t.datetime "updated_at"

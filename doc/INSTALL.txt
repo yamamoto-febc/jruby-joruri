@@ -380,7 +380,7 @@ GalateaTalkをインストールします。
   $ crontab -e
   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
   10,25,40,55 * * * * /usr/local/bin/ruby /var/share/joruri/script/runner \
-    -e production "Script.run('sys/script/tasks/exec')"
+    -e production "Script.run('sys/script/jobs/exec')"
   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
   ※公開ディレクトリ : /var/share/joruri/public_00000001
@@ -398,7 +398,7 @@ GalateaTalkをインストールします。
   $ crontab -e
   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
   */15 * * * * /usr/local/bin/ruby /var/share/joruri/script/runner \
-    -e production "Script.run('cms/script/talk_tasks/exec')"
+    -e production "Script.run('cms/script/talk_jobs/exec')"
   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 新着記事ポータルで設定したAtomフィードを取り込みます。

@@ -100,7 +100,7 @@ module Sys::Model::Rel::Publication
     
     ## yomiage sound
 #    add_publisher(:path => path, :content => content)
-#    add_talk_task(:path => path)
+#    add_talk_job(:path => path)
     
     return true
   end

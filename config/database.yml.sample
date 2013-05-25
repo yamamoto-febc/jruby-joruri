@@ -1,0 +1,26 @@
+production:
+  adapter : jdbcmysql
+  database: joruri
+  username: joruri
+  password: joruri
+  timeout : 5000
+  encoding: utf8
+  host: localhost
+
+test:
+  adapter : 
+  database: 
+  username: 
+  password: 
+  timeout : 
+  encoding: 
+  host: 
+
+development:
+  adapter : jdbcmysql
+  database: joruri
+  username: joruri
+  password: joruri
+  timeout : 5000
+  encoding: utf8
+  host: localhost

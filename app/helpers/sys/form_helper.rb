@@ -22,15 +22,15 @@ module Sys::FormHelper
     render :partial => 'sys/admin/_partial/recognizers/view', :locals => locals
   end
   
-  def task_form(form)
+  def job_form(form)
     item = @template.instance_variable_get("@#{form.object_name}")
     locals = {:f => form, :item => item}
-    render :partial => 'sys/admin/_partial/tasks/form', :locals => locals
+    render :partial => 'sys/admin/_partial/jobs/form', :locals => locals
   end
   
-  def task_view(item)
+  def job_view(item)
     locals = {:item => item}
-    render :partial => 'sys/admin/_partial/tasks/view', :locals => locals
+    render :partial => 'sys/admin/_partial/jobs/view', :locals => locals
   end
   
   def editable_group_form(form)

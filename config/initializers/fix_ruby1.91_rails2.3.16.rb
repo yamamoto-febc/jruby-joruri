@@ -73,14 +73,10 @@ class ERB
   module Util
     def html_escape(s)
       s = s.to_s
-      
-      ## check encoding
-      s.force_encoding(Encoding::UTF_8) if s.respond_to?(:force_encoding)
-      
       if s.html_safe?
         s
       else
-        s.to_s.gsub(/&/, "&amp;").gsub(/\"/, "&quot;").gsub(/>/, "&gt;").gsub(/</, "&lt;").html_safe
+        s.gsub(/[&"'><]/n) { |special| HTML_ESCAPE[special] }.html_safe
       end
     end
     
